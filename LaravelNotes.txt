@@ -1,0 +1,95 @@
+After installing the application just check by printing something so go->
+resources/views/welcome.blade.php
+Note : if we do not give the .blade extention in the view file it will still work.
+
+What is MVC(Model ,View , Controller) ?
+MVC is a software design pattern to develop reliable and scallebale software applications.
+
+Model = Write Bussiness Logic and Database communication.
+View = UserInterface (code that we we write to display on UI)
+Controller : Handle user interaction and select a view to render communicate model and View
+
+M (Model):
+Represents the data layer (database tables, relationships, queries).
+Example: User, Post, Product.
+Defines attributes, relationships, scopes, casts.
+Should contain data-related logic only (not business rules).
+
+V (View):
+Responsible for the presentation layer (Blade templates, React/Vue components, etc.).
+
+C (Controller):
+Handles the application logic.
+Receives a request → asks the Model for data → passes data to the View.
+Should not contain raw SQL, but can call models/services.
+
+
+File and Folder Structure Overview :
+
+composer.json : this is the most important file of your project it by mistakly you delete it
+chances of running your project is almost impossible.
+because all the detils , dependencies and autoload files information here.
+
+Note : The dependencies that are listed on composer.json file are stored inside vender folder.
+app / --Controller
+      --Model
+      --Server Provider
+      --Middleware
+
+console.php -- this file is used when we deal with command line interface
+
+config / --database.php(connection for database ad db configration)
+
+database / --migrations
+           --seeders
+           --factories
+public / -- .htaccess
+         -- index.php (when we open the website the first file executes public/index.php)
+
+storage / -- app
+          -- framework
+          -- logs
+when we create a file like pdf , exel inside our project it store inside storage folder
+also cache logs are stored here.
+
+
+#comment in laravel
+<!-- below are the way to comment laravel blade if uou do html comment like this then 
+ larvel blade still parses because this method is for html comment -->
+{{--<h2>and admin name is {{$admin}}</h2>--}}
+
+
+🔹 What is Blade Template in Laravel?
+
+Blade is Laravel’s templating engine.
+It’s a special syntax built on top of plain PHP that helps you write cleaner, reusable,
+and more readable views (HTML files).
+
+Blade templates are stored inside the resources/views folder, and have theextension .blade.php.
+Example:
+
+resources/views/welcome.blade.php
+resources/views/admin/admin.blade.php
+
+🔹 Why use Blade?
+
+Instead of mixing raw PHP into your HTML (which looks messy), Blade gives you:
+
+Cleaner syntax → {{ $variable }} instead of <?php echo $variable; ?>
+Template inheritance → reuse layouts across pages
+Control structures → @if, @foreach, @auth etc.
+Components → reusable UI pieces (<x-alert />, <x-button />)
+Security → output is automatically escaped (protects against XSS).
+
+When you load a Blade file (.blade.php) for the first time:
+Laravel compiles it into a cached PHP file inside storage/framework/views.
+After that, Laravel uses the cached PHP file directly.
+
+Component : 
+A component is a reusable block of UI + optional logic.
+It represents a part of the interface (like a button, card, modal).
+It may internally call functions, but its main purpose is UI composition.
+Note : --
+Both functions and components are reusable, but their scope is different.
+A function is about logic reuse (e.g., math, data processing).
+A component is about UI reuse (HTML/structure), though it may include small logic.
