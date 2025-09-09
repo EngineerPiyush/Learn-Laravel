@@ -93,3 +93,22 @@ Note : --
 Both functions and components are reusable, but their scope is different.
 A function is about logic reuse (e.g., math, data processing).
 A component is about UI reuse (HTML/structure), though it may include small logic.
+
+what are validation rules in Larvel ?
+Valiation rules means which type validation you are going to make 
+like : reqired , min & max , email , password etc
+
+What are the named routes in laravel ?
+Named routes are  nothing but the route which i have named..
+means sometimes in laravel we have a long path route and if you want to short the url or 
+route in some small words so that you can prevent mistakes by typing routes and also do 
+not want to type a long url then you can use named route feature.
+
+Prefix Route group?
+When so many routes have some fixed path/route in starting then we group them so that the 
+starting path we do not need to type for each path also if there is any change we can do it
+eaisly
+There are three ways to group a route in Laravel
+1: using Prefix
+2: using Controller
+3: using Middleware

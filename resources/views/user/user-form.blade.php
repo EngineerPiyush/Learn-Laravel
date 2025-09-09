@@ -1,5 +1,5 @@
 <!-- {{print_r($errors)}} -->
- @if($errors->any())
+ <!-- @if($errors->any()) -->
 <!-- @foreach($errors->all() as $error)
 {{$error}}
 @endforeach
@@ -8,31 +8,31 @@
 @csrf
 <div class="input-wrapper">
 <label for="name">Name</label>
-<input type="text" name="name" id="name">
-<span>@error('name'){{$message}}@enderror</span>
+<input type="text" name="name" id="name" value="{{old('name')}}" class="{{$errors->first('name') ? 'input-error' :''}}">
+<span>@error('name'){{$message}}@enderror</span><br>
 <label for="name">Email</label>
-<input type="email" name="email" id="email">
-<span>@error('email'){{$message}}@enderror</span>
+<input type="email" name="email" id="email" value="{{old('email')}}"class="{{$errors->first('email') ? 'input-error' :''}}">
+<span>@error('email'){{$message}}@enderror</span><br>
 <label for="name">Password</label>
-<input type="password" name="password" id="password">
+<input type="password" name="password" id="password" value="{{old('password')}}">
 <span>@error('password'){{$message}}@enderror</span>
 </div>
 
 <div class="special-input">User Skills <br>
 <label for="php">PHP</label>    
-<input type="checkbox" name="skills[]" id="php" value="php">
+<input type="checkbox" name="skills[]" id="php" value="php" value="{{old('skills[]')}}">
 <label for="node">Node</label>
-<input type="checkbox" name="skills[]" id="node" value="node">
+<input type="checkbox" name="skills[]" id="node" value="node" value="{{old('skills[]')}}">
 <label for="java">Java</label>
-<input type="checkbox" name="skills[]" id="java" value="java">
-<span>@error('skills[]'){{$message}}@enderror</span>
+<input type="checkbox" name="skills[]" id="java" value="java" value="{{old('skills[]')}}"><br>
+<span>@error('skills'){{$message}}@enderror</span>
 </div>
 
 <div class="special-input">User Gender <br>
 <label for="male">Male</label>
 <input type="radio" name="gender" id="male" value="male">
 <label for="female">Female</label>
-<input type="radio" name="gender" id="female" value="female">
+<input type="radio" name="gender" id="female" value="female"><br>
 <span>@error('gender'){{$message}}@enderror</span>
 </div>
 
@@ -79,5 +79,8 @@ button{
   border: 1px solid yellowgreen;
   border-radius: 5px;
   cursor: pointer;
+}
+.input-error{
+    border: 1px solid red !important;
 }
 </style>
