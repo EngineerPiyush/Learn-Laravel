@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\AgeCheck;
 use Illuminate\Support\Facades\Route;
 
 // creating routes and showing view through routes 
@@ -44,3 +46,14 @@ Route::prefix('college/student')->group(function(){
     Route::view('/piyush','user.piyush');
     Route::get('/ashish',[UserController::class,'userAshish']);
 });
+
+Route::controller(StudentController::class)->group(function(){
+    Route::get('/ashish','studentAshish');
+    Route::get('/piyush','studentPiyush');
+    Route::get('/student/{name}','studentWithName');
+});
+
+// Middlare are Routes
+// Route::view('/home','home')->middleware('check1');
+Route::view('/sub-view','welcome')->middleware(AgeCheck::class);
+

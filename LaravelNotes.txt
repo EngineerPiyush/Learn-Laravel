@@ -112,3 +112,18 @@ There are three ways to group a route in Laravel
 1: using Prefix
 2: using Controller
 3: using Middleware
+
+What is Middleware ?
+Middleware is a layer between client and application
+Client Request->Middleware->Controller/View
+suppose if you want to check wheather a user is logged in or not then you can do check the 
+session are set or not in each page or u can use middleware which will run before all
+controllers.
+
+Types of Middleware
+1: Global Middleware
+2: Route Middleware
+3: Group Middleware
+
+To apply middleware in your laravel project you need to go inside bootstrap/app.php and in 
+withMiddleware() function you need to put it.
