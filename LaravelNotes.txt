@@ -127,3 +127,6 @@ Types of Middleware
 
 To apply middleware in your laravel project you need to go inside bootstrap/app.php and in 
 withMiddleware() function you need to put it.
+
+
+Database connection
